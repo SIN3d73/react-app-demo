@@ -1,5 +1,12 @@
 import React from 'react';
+import BindingExample from './BindingExample/BindingExample';
+import FunctionsExample from './FunctionsExample/FunctionsExample';
 
 export default function Basics() {
-  return <h2>Home</h2>;
+  return (
+    <main>
+      <BindingExample/>
+      <FunctionsExample/>
+    </main>
+  )
 }
