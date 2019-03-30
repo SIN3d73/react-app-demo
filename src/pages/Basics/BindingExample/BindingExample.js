@@ -17,7 +17,7 @@ export default class BindingExample extends Component {
 
   render() {
     return (
-        <Card className="mt-2">
+        <Card className="mt-5">
           <Card.Header>
             Values (state) binding
           </Card.Header>

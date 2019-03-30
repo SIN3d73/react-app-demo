@@ -4,15 +4,15 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import moment from 'moment';
-import DatePicker from "react-datepicker";
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { DatePickerInput } from 'rc-datepicker';
 
 export default class FunctionsExample extends Component {
 
   state = {
-    time: moment().toISOString(),
-    yearsCount: null
+    time: moment(),
+    yearsCount: ''
   };
 
   handleTimeChange = (time) => {
@@ -20,7 +20,7 @@ export default class FunctionsExample extends Component {
   };
 
   handleResetTime = () => {
-    this.handleTimeChange(moment().toISOString());
+    this.handleTimeChange(moment());
   };
 
   handleYearChange = (event) => {
@@ -29,28 +29,25 @@ export default class FunctionsExample extends Component {
 
   handleYearAddition = (count) => {
     this.setState(previousState => ({
-      time: moment(previousState.time).add(count, 'year').toISOString()
+      time: moment(previousState.time).add(count, 'year')
     }))
   };
 
   render() {
     return (
-      <Card className="mt-2">
+      <Card className="mt-3">
         <Card.Header>
           Functions & dates
         </Card.Header>
         <Card.Body>
           <Row>
             <Col xs={3}>
-              <Form>
-                <Form.Group controlId="time">
-                  <DatePicker dropdownMode="select"
-                              dateFormat="dd.MM.yyyy"
-                              selected={this.state.time}
-                              onChange={this.handleTimeChange}
-                              className="form-control"/>
-                </Form.Group>
-              </Form>
+              <DatePickerInput
+                value={this.state.time}
+                displayFormat='DD.MM.YYYY'
+                showOnInputClick
+                onChange={this.handleTimeChange}
+                className='my-react-component'/>
             </Col>
             <Col xs={3}>
               <Button onClick={this.handleResetTime}>Reset time</Button>
