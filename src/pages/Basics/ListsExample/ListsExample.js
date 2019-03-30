@@ -21,14 +21,20 @@ export default class ListsExample extends Component {
         expYears: 3,
       },
       {
-        name: 'Karolov',
+        name: 'Karol',
         imagePath: 'http://via.placeholder.com/50?text=K',
         expYears: 8,
+      },
+      {
+        name: 'Marcinek',
+        imagePath: null,
+        expYears: 0,
       }
     ]
   };
 
   seniorYear = 7;
+  defaultImagePath = 'http://via.placeholder.com/50/eee?text=?';
 
   handleFilterChange = (event) => {
     this.setState({filter: event.target.value})
@@ -87,8 +93,15 @@ export default class ListsExample extends Component {
                 {
                   this.state.objectList.map((item) => (
                     <ListGroupItem key={item.name}>
-                      <Image roundedCircle className="mr-2" src={item.imagePath} alt="" width={50} height={50}/>
-                      <span className="mr-2">{item.name}</span><wbr/>
+                      <Image roundedCircle
+                             className="mr-2"
+                             src={item.imagePath || this.defaultImagePath}
+                             alt=""
+                             width={50}
+                             height={50}
+                      />
+                      <span className="mr-2">{item.name}</span>
+                      <wbr/>
                       {(item.expYears > this.seniorYear) && (<small className="text-success">(Senior)</small>)}
                     </ListGroupItem>
                   ))
