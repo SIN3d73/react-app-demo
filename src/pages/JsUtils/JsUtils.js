@@ -82,11 +82,7 @@ export default class JsUtils extends Component {
 
         <Feature
           headerName="Arrow function"
-          code={`sub = (a, b) => a - b
-
-add(a, b){
-  return a + b
-}`}
+          code={`sub = (a, b) => a - b\n\nadd(a, b){\n\treturn a + b\n}`}
         >
           <div>
             <div className="mb-3">
@@ -100,9 +96,7 @@ add(a, b){
 
         <Feature
           headerName="Function as parameter"
-          code={`doMath = (fn) => fn(8, 4)
-
-doMath(textValue === 'add' ? this.add : this.sub)`}
+          code={`doMath = (fn) => fn(8, 4)\n\ndoMath(textValue === 'add' ? this.add : this.sub)`}
         >
           <div>
             <Button onClick={() => alert(this.doMath(textValue === 'add' ? this.add : this.sub))}>doMath</Button>
@@ -111,11 +105,7 @@ doMath(textValue === 'add' ? this.add : this.sub)`}
 
         <Feature
           headerName="Function as callback"
-          code={`doSthLater = (fn) => {
-  setTimeout(fn, 5000)
-}
-
-doSthLater(() => alert('after 5 sec'))`}
+          code={`doSthLater = (fn) => {\n\tsetTimeout(fn, 5000)\n}\ndoSthLater(() => alert('after 5 sec'))`}
         >
           <div>
             <Button onClick={() => this.doSthLater(() => alert('after 5 sec'))}>doSthLater</Button>
