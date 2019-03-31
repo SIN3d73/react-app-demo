@@ -16,6 +16,9 @@ export default function AppNavbar() {
           <NavLink to="/users" className="nav-link" activeClassName="active">
             Users
           </NavLink>
+          <NavLink to="/js-utils" className="nav-link" activeClassName="active">
+            JS utils
+          </NavLink>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
