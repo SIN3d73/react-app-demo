@@ -3,21 +3,21 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import Badge from 'react-bootstrap/Badge';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Image from 'react-bootstrap/Image';
+import CreateUserModal from './User/User';
 
 export default class Users extends Component {
 
  state = {
+  modalShow: false,
   users: [
    {
     id: 1,
     name: 'Ludmiła Stanik',
-    age: 20,
     address: 'Jana Pawła 20A',
-    postCode: '25-640 Kielce',
-    url: '#user1',
     isNew: true,
     skillQuality: 20,
-    directionSkill: 'GIT'
+    directionSkill: 'GIT',
+    isActive: true
    },
    {
     id: 2,
@@ -127,6 +127,13 @@ export default class Users extends Component {
   ]
  };
 
+
+ handleModalClose() {
+  this.setState({
+   modalShow: false
+  })
+ }
+
  checkUser(user) {
   alert(`${user.name} is the best person to work with ${user.directionSkill}, ! Great :)! Nicely Done :)`)
  }
@@ -134,6 +141,11 @@ export default class Users extends Component {
  render() {
   return (
     <div className="mt-5 mb-5">
+
+     <CreateUserModal
+       show={this.state.modalShow}
+       onHide={this.handleModalClose}
+     />
 
      <h1>Select User</h1>
      <ListGroup>
