@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import { Formik } from 'formik';
 import axios from 'axios';
 import * as yup from 'yup';
+import * as PropTypes from 'prop-types';
 
 
 const schema = yup.object({
@@ -15,36 +16,35 @@ const schema = yup.object({
 });
 
 
-export default class CreateUserModal extends React.Component {
+class CreateUserModal extends React.Component {
 
   state = {
     show: false,
-  }
+  };
 
   constructor(props, context) {
     super(props, context);
-
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-
+    // this.handleShow = this.handleShow.bind(this);
+    // this.handleClose = this.handleClose.bind(this);
   }
 
-  handleClose() {
+  handleClose = () => {
     this.setState({ show: false });
-  }
+  };
 
-  handleShow() {
+  handleShow = () => {
     this.setState({ show: true });
-  }
+  };
 
-  submitCreateUserForm(data) {
-    axios.post(`/users`,data)
-      .then(() => this.handleClose)
-  }
+  submitCreateUserForm = data => {
+    axios.post(`/users`, data)
+      .then(() => this.props.onReloadUserList())
+      .then(() => {this.handleClose()})
+  };
 
   render() {
     return (
-      <>
+      <React.Fragment>
         <Button variant="success" onClick={this.handleShow}>
           Create User
         </Button>
@@ -135,8 +135,12 @@ export default class CreateUserModal extends React.Component {
             </Formik>
           </Modal.Body>
         </Modal>
-      </>
+      </React.Fragment>
     );
   }
 }
+CreateUserModal.propTypes = {
+  onReloadUserList: PropTypes.func,
 
+};
+export default CreateUserModal;
