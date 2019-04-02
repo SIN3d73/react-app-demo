@@ -31,9 +31,9 @@ class Feature extends Component {
           <Card.Body>
             <Row>
               <Col>
-          <pre>
+          <p>
             {code}
-          </pre>
+          </p>
               </Col>
               <Col>
                 {children}
