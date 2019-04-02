@@ -28,18 +28,20 @@ class Feature extends Component {
           </Button>
         </Card.Header>
         <Collapse in={this.state.open}>
-          <Card.Body>
-            <Row>
-              <Col>
-          <pre>
-            {code}
-          </pre>
-              </Col>
-              <Col>
-                {children}
-              </Col>
-            </Row>
-          </Card.Body>
+          <div>
+            <Card.Body>
+              <Row>
+                <Col>
+                  <pre>
+                    {code}
+                  </pre>
+                </Col>
+                <Col>
+                  {children}
+                </Col>
+              </Row>
+            </Card.Body>
+          </div>
         </Collapse>
       </Card>
     )
