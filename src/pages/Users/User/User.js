@@ -7,7 +7,6 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { Formik } from 'formik';
-// import { browserHistory } from 'react-router';
 import * as yup from 'yup';
 
 const schema = yup.object({
@@ -18,10 +17,10 @@ const schema = yup.object({
 });
 
 const initialUser = {
-  id: null,
+  id: '',
   name: '',
   address: '',
-  workProgress: null,
+  workProgress: '',
   task: '',
 };
 
@@ -114,6 +113,8 @@ export default class User extends Component {
                       <Form.Control
                         type="number"
                         step="0.5"
+                        max="100"
+                        min="0"
                         name="workProgress"
                         value={values.workProgress}
                         onChange={handleChange}

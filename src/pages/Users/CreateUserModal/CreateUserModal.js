@@ -24,8 +24,6 @@ class CreateUserModal extends React.Component {
 
   constructor(props, context) {
     super(props, context);
-    // this.handleShow = this.handleShow.bind(this);
-    // this.handleClose = this.handleClose.bind(this);
   }
 
   handleClose = () => {
