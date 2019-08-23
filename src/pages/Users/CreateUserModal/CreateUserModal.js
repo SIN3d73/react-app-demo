@@ -9,9 +9,9 @@ import * as PropTypes from 'prop-types';
 
 
 const schema = yup.object({
-  name: yup.string().required(),
-  address: yup.string().required(),
-  workProgress: yup.number().required(),
+  name: yup.string().required('Required').min(2),
+  address: yup.string().required('Also required'),
+  workProgress: yup.number().required().min(0).max(100),
   task: yup.string().required(),
 });
 
@@ -84,6 +84,9 @@ class CreateUserModal extends React.Component {
                       isValid={touched.name && !errors.name}
                       isInvalid={touched.name && errors.name}
                     />
+                    <Form.Control.Feedback type="invalid">
+                      {errors.name}
+                    </Form.Control.Feedback>
                   </Form.Group>
 
                   <Form.Group controlId="address">
@@ -97,6 +100,9 @@ class CreateUserModal extends React.Component {
                       isValid={touched.address && !errors.address}
                       isInvalid={touched.address && errors.address}
                     />
+                    <Form.Control.Feedback type="invalid">
+                      {errors.address}
+                    </Form.Control.Feedback>
                   </Form.Group>
 
                   <Form.Group controlId="userSkills">
@@ -110,6 +116,9 @@ class CreateUserModal extends React.Component {
                       isValid={touched.workProgress && !errors.workProgress}
                       isInvalid={touched.workProgress && errors.workProgress}
                     />
+                    <Form.Control.Feedback type="invalid">
+                      {errors.workProgress}
+                    </Form.Control.Feedback>
                   </Form.Group>
 
                   <Form.Group controlId="userSkills">
@@ -123,6 +132,9 @@ class CreateUserModal extends React.Component {
                       isValid={touched.task && !errors.task}
                       isInvalid={touched.task && errors.task}
                     />
+                    <Form.Control.Feedback type="invalid">
+                      {errors.task}
+                    </Form.Control.Feedback>
                   </Form.Group>
 
                   <Button variant="primary" type="submit">

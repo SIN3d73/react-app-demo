@@ -6,7 +6,6 @@ import Image from 'react-bootstrap/Image';
 import CreateUserModal from './CreateUserModal/CreateUserModal';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Button from './User/User';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -46,14 +45,15 @@ export default class Users extends Component {
                         key={item.id}
                         variant="light"
                         action>
-                        <Image className="mr-2" src={`http://via.placeholder.com/50?text=${item.name.charAt(0)}`}
+                        <Image className="mr-2"
+                               src={`http://via.placeholder.com/50?text=${item.name.charAt(0)}`}
                                rounded/>
                         {item.name},
                         {item.address}
                         {item.isNew ?
                           <Badge
                             variant="secondary"
-                            className="ml-2"> New</Badge> : null}
+                            className="ml-2">New</Badge> : null}
                         <ProgressBar
                           striped
                           animated
