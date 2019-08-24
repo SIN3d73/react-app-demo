@@ -29,7 +29,6 @@ export default class JsUtils extends Component {
   };
 
   addToList = (value) => {
-    console.log(value);
     this.setState((prevState) => ({list: [...prevState.list, value], textValue: ''})
     )
   };

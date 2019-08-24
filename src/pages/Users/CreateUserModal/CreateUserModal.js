@@ -22,10 +22,6 @@ class CreateUserModal extends React.Component {
     show: false,
   };
 
-  constructor(props, context) {
-    super(props, context);
-  }
-
   handleClose = () => {
     this.setState({ show: false });
   };
